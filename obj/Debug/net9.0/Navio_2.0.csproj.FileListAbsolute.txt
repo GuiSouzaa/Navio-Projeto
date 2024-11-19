@@ -12,3 +12,4 @@
 /home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.pdb
 /home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.genruntimeconfig.cache
 /home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/ref/Navio_2.0.dll
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.sourcelink.json
