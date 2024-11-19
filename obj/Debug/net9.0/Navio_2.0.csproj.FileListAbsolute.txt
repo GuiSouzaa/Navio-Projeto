@@ -1,0 +1,14 @@
+/home/guilherme/dev/Navio_2.0/bin/Debug/net9.0/Navio_2.0
+/home/guilherme/dev/Navio_2.0/bin/Debug/net9.0/Navio_2.0.deps.json
+/home/guilherme/dev/Navio_2.0/bin/Debug/net9.0/Navio_2.0.runtimeconfig.json
+/home/guilherme/dev/Navio_2.0/bin/Debug/net9.0/Navio_2.0.dll
+/home/guilherme/dev/Navio_2.0/bin/Debug/net9.0/Navio_2.0.pdb
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.GeneratedMSBuildEditorConfig.editorconfig
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.AssemblyInfoInputs.cache
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.AssemblyInfo.cs
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.csproj.CoreCompileInputs.cache
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.dll
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/refint/Navio_2.0.dll
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.pdb
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/Navio_2.0.genruntimeconfig.cache
+/home/guilherme/dev/Navio_2.0/obj/Debug/net9.0/ref/Navio_2.0.dll
