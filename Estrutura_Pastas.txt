@@ -1,0 +1,9 @@
+Controllers (para as rotas da API).
+
+Services (lógica de negócios, como cálculos e integração com o ERP).
+
+Models (definição das classes, como Produto, Fornecedor, etc.).
+
+Repositories (acesso ao banco de dados, se houver).
+
+Utilities (funções auxiliares, como geração de relatórios).
