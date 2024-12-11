@@ -1,16 +1,32 @@
-﻿public class Program
-{
-    public static void Main(string[] args)
-    {
-        // Instanciando o objeto Fornecedor
-        Fornecedor Ibsen = new Fornecedor(1);
-        Fornecedor Guilherme = new Fornecedor(2);
+﻿using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
+using System;
 
-        //Exibir oque eles tem, lembrando que por conta do id eu sei oque cada um pode ter
-        Ibsen.ExibirProdutos();
-        Guilherme.ExibirProdutos();
-        
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Carregar as configurações do appsettings.json
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        // Obter a string de conexão
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+        // Testar a conexão
+        using (var connection = new MySqlConnection(connectionString))
+        {
+            try
+            {
+                connection.Open();
+                Console.WriteLine("Conexão com o banco de dados bem-sucedida!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro na conexão: " + ex.Message);
+            }
+        }
     }
 }
-
-
