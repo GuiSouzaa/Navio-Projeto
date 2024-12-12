@@ -1,44 +1,66 @@
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+
 public class Fornecedor
 {
-    public int Id { get; set; }
-    public List<String> Produtos {get; set;}
+    public string ID_FORNECEDOR { get; set; }
+    public string REFERENCIA_ID { get; set; }
+    public string NOME_FORNECEDOR { get; set; }
+    public string NOME_CONTATO { get; set; }
+    public string FONE_ZAP { get; set; }
+    public string EMAIL { get; set; }
 
     // Construtor
-    public Fornecedor(int id)
+    public Fornecedor(string id_fornecedor, string referencia_id, string nome_fornecedor, string nome_contato, string fone_zap, string email)
     {
-        Id = id;
-        Produtos = new List<String>(); //Incia a lista de produtos vazia.
-        DefinirProdutos(); //Vai definir com base no ID.
+        this.ID_FORNECEDOR = id_fornecedor;
+        this.REFERENCIA_ID = referencia_id;
+        this.NOME_FORNECEDOR = nome_fornecedor;
+        this.NOME_CONTATO = nome_contato;
+        this.FONE_ZAP = fone_zap;
+        this.EMAIL = email;
     }
 
-    //Metodo que define os produtos com base no ID do fornecedor.
-    public void DefinirProdutos()
+    // Método estático para buscar os fornecedores dentro do banco de dados
+    public static List<Fornecedor> BuscarFornecedores()
     {
-        if(Id == 1)
+        List<Fornecedor> Fornecedor = new List<Fornecedor>();
+        
+        string query = "SELECT ID_FORNECEDOR, REFERENCIA_ID, NOME_FORNECEDOR, NOME_CONTATO, FONE_ZAP, EMAIL FROM Fornecedor";
+
+        try
         {
-            Produtos.Add("Carne de boi");
-            Produtos.Add("Carne de Frango");
+            using (MySqlConnection connection = new Conexao().GetConnection()) // Obtendo a conexão com o banco de dados
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Criando o objeto Fornecedor com todos os dados do banco
+                            Fornecedor fornecedor = new Fornecedor(
+                                reader.GetString("ID_FORNECEDOR"),
+                                reader.GetString("REFERENCIA_ID"),
+                                reader.GetString("NOME_FORNECEDOR"),
+                                reader.GetString("NOME_CONTATO"),
+                                reader.GetString("FONE_ZAP"),
+                                reader.GetString("EMAIL")
+                            );
+
+                            Fornecedor.Add(fornecedor); // Adicionando o fornecedor à lista
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao acessar o banco de dados: " + ex.Message);
         }
 
-        else if(Id == 2)
-        {
-            Produtos.Add("Frutas vermelhas");
-        }
-
-        else
-        {
-            Console.WriteLine("Fornecedor não cadastrado no sistema");
-        }
-
+        return Fornecedor; // Retornando a lista de fornecedores
     }
-    
-    public void ExibirProdutos()
-    {
-        System.Console.WriteLine($"O fornecedor {Id} pode oferecer os seguintes Produtos: ");
-
-        foreach (var produto in Produtos)
-        {
-            System.Console.WriteLine(produto);
-        }
-    }
-};
+}
