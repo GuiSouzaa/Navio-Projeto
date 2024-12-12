@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Navio_2.0")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b1080c93b185cda33ab8a6e6f553e79be8264db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d306a31b6b4840a1f2d222f91c00bb3f2be49013")]
 [assembly: System.Reflection.AssemblyProductAttribute("Navio_2.0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Navio_2.0")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
