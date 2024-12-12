@@ -63,4 +63,40 @@ public class Fornecedor
 
         return Fornecedor; // Retornando a lista de fornecedores
     }
+
+
+    //Metodo para adicionar fornecedores
+  public static void CadastrarFornecedor(string id_fornecedor, string referencia_id, string nome_fornecedor, string nome_contato, string fone_zap, string email)
+{
+    string query = "INSERT INTO Fornecedor (ID_FORNECEDOR, REFERENCIA_ID, NOME_FORNECEDOR, NOME_CONTATO, FONE_ZAP, EMAIL) " +
+                   "VALUES (@ID_FORNECEDOR, @REFERENCIA_ID, @NOME_FORNECEDOR, @NOME_CONTATO, @FONE_ZAP, @EMAIL)";
+
+    try
+    {
+        using (MySqlConnection connection = new Conexao().GetConnection()) // Faz a conexão com o banco de dados
+        {
+            connection.Open();
+            using (MySqlCommand cmd = new MySqlCommand(query, connection))
+            {
+                // Adiciona os parâmetros à consulta SQL
+                cmd.Parameters.AddWithValue("@ID_FORNECEDOR", id_fornecedor);
+                cmd.Parameters.AddWithValue("@REFERENCIA_ID", referencia_id);
+                cmd.Parameters.AddWithValue("@NOME_FORNECEDOR", nome_fornecedor);
+                cmd.Parameters.AddWithValue("@NOME_CONTATO", nome_contato);
+                cmd.Parameters.AddWithValue("@FONE_ZAP", fone_zap);
+                cmd.Parameters.AddWithValue("@EMAIL", email);
+
+                // Executa a consulta SQL
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        //Console.WriteLine("Fornecedor cadastrado com sucesso!"); //Já tem um CW no principal.
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Erro ao cadastrar fornecedor: " + ex.Message);
+    }
+}
+
 }
