@@ -135,4 +135,51 @@ public class Fornecedor
     }
     }
 
+   // Método para atualizar fornecedores existentes
+    public static void AtualizarFornecedor(string id_fornecedor, string referencia_id, string nome_fornecedor, string nome_contato, string fone_zap, string email)
+    {
+        string query = "UPDATE Fornecedor " +
+                    "SET REFERENCIA_ID = @REFERENCIA_ID, " +
+                    "NOME_FORNECEDOR = @NOME_FORNECEDOR, " +
+                    "NOME_CONTATO = @NOME_CONTATO, " +
+                    "FONE_ZAP = @FONE_ZAP, " +
+                    "EMAIL = @EMAIL " +
+                    "WHERE ID_FORNECEDOR = @ID_FORNECEDOR";
+
+        try
+        {
+            using (MySqlConnection connection = new Conexao().GetConnection()) // Conexão com o banco de dados
+            {
+                connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    // Adiciona os parâmetros à consulta SQL
+                    cmd.Parameters.AddWithValue("@ID_FORNECEDOR", id_fornecedor);
+                    cmd.Parameters.AddWithValue("@REFERENCIA_ID", referencia_id);
+                    cmd.Parameters.AddWithValue("@NOME_FORNECEDOR", nome_fornecedor);
+                    cmd.Parameters.AddWithValue("@NOME_CONTATO", nome_contato);
+                    cmd.Parameters.AddWithValue("@FONE_ZAP", fone_zap);
+                    cmd.Parameters.AddWithValue("@EMAIL", email);
+
+                    // Executa a consulta SQL
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Fornecedor atualizado com sucesso!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nenhum fornecedor foi atualizado. Verifique o ID.");
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao atualizar fornecedor: " + ex.Message);
+        }
+    }
+
+
 }

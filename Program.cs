@@ -6,14 +6,26 @@ public class Program
     public static void Main(string[] args)
     {   //--------------------------------------------------------------------------------------
 
-        // Bloco para chamar funções e realizar testes unitarios
+        // Bloco para chamar funções e realizar testes unitarios CLASSE FORNECEDOR! CRUD
 
-            CadastrarFornecedor();
-            BuscarFornecedores();
-            DeletarFornecedor();
+            //CadastrarFornecedor();
+            //BuscarFornecedores();
+            //AtualizarFornecedor();
+            //DeletarFornecedor();
+
+        //--------------------------------------------------------------------------------------
+
+        //--------------------------------------------------------------------------------------
+
+        // Bloco para chamar funções e realizar testes unitarios CLASSE NAVIO!
+
+            //buscarNavio();
 
         //--------------------------------------------------------------------------------------
     }
+
+
+    //Funções Fornecedor
 
     // Função para cadastrar um fornecedor
     public static void CadastrarFornecedor()
@@ -48,6 +60,19 @@ public class Program
         }
     }
 
+     public static void AtualizarFornecedor()
+    {
+        string id_fornecedor = "f800";
+        string referencia_id = "REF999";
+        string nome_fornecedor = "guilherme Alterado";
+        string nome_contato = "Contato Alterado";
+        string fone_zap = "98765";
+        string email = "fornecedor_alterado@exemplo.com";
+
+        Fornecedor.AtualizarFornecedor(id_fornecedor, referencia_id, nome_fornecedor, nome_contato, fone_zap, email);
+        Console.WriteLine("Fornecedor atualizado com sucesso!");
+    }
+
     public static void DeletarFornecedor()
     {
         //Definir o id que eu quero deletar
@@ -57,5 +82,20 @@ public class Program
         Fornecedor.DeletarFornecedor(id_fornecedor);
 
         Console.WriteLine($"Processo de exclusão do fornecedor com ID {id_fornecedor} finalizado.");
+    }
+
+        // Funções dos Navios
+    public static void buscarNavio()
+    {
+        List<Navio> navios = Navio.buscarNavio();
+        foreach (var navio in navios)
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine($"ID_NAVIO: {navio.ID_NAVIO}");
+            Console.WriteLine($"NOME_NAVIO: {navio.NOME_NAVIO}");
+            Console.WriteLine($"PORTO: {navio.PORTO}");
+            Console.WriteLine($"MODAL: {navio.MODAL}");
+            Console.WriteLine("-------------------------------------------");
+        }
     }
 }
