@@ -19,7 +19,10 @@ public class Program
 
         // Bloco para chamar funções e realizar testes unitarios CLASSE NAVIO!
 
-            //buscarNavio();
+            buscarNavio();
+            //cadastrarNavio();
+            //atualizarNavio();
+            //deletarNavio();
 
         //--------------------------------------------------------------------------------------
     }
@@ -84,6 +87,11 @@ public class Program
         Console.WriteLine($"Processo de exclusão do fornecedor com ID {id_fornecedor} finalizado.");
     }
 
+        
+        
+        
+        
+        
         // Funções dos Navios
     public static void buscarNavio()
     {
@@ -97,5 +105,36 @@ public class Program
             Console.WriteLine($"MODAL: {navio.MODAL}");
             Console.WriteLine("-------------------------------------------");
         }
+    }
+
+
+    public static void cadastrarNavio()
+    {
+        int id_navio = 5;
+        string nome_navio = "navio cruzeiro";
+        string porto = "gramado";
+        string modal = "perto";
+
+        Navio.cadastrarNavio(id_navio, nome_navio, porto, modal);
+        Console.WriteLine("Fornecedor cadastrado com sucesso!");
+    }
+
+
+    public static void atualizarNavio()
+    {
+        int id_navio = 5;
+        string nome_navio = "balsa";
+        string porto = "rio de janeiro";
+        string modal = "longe";
+
+        Navio.atualizarNavio(id_navio, nome_navio, porto, modal);
+        
+    }
+
+
+    public static void deletarNavio()
+    {
+        int id_navio = 5;
+        Navio.deletarNavio(id_navio);
     }
 }
