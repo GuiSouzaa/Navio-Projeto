@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
 
@@ -98,5 +99,40 @@ public class Fornecedor
         Console.WriteLine("Erro ao cadastrar fornecedor: " + ex.Message);
     }
 }
+
+    //Deletar pelo ID do fornecedor
+    public static void DeletarFornecedor(string id_fornecedor)
+    {
+        string query = "DELETE FROM Fornecedor WHERE ID_FORNECEDOR = @ID_FORNECEDOR";
+
+        try
+        {
+            using(MySqlConnection connection = new Conexao().GetConnection())
+            {
+                connection.Open();
+                using(MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    //Adiciona o parametro para ver qual fornecedor sera deletado
+                    cmd.Parameters.AddWithValue("@ID_FORNECEDOR", id_fornecedor);
+                    int rowsAfected = cmd.ExecuteNonQuery();
+
+                    if(rowsAfected > 0)
+                    {
+                        Console.WriteLine("O id foi deletado");
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("O id deu algum tipo de erro");
+                    }
+
+                }
+               
+            }
+        }
+        catch (Exception ex)
+    {
+        Console.WriteLine("Erro ao deletar fornecedor: " + ex.Message);
+    }
+    }
 
 }

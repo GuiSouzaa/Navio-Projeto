@@ -4,12 +4,15 @@ using System.Collections.Generic;
 public class Program
 {
     public static void Main(string[] args)
-    {
-        // Chama a função para cadastrar um fornecedor
-        //CadastrarFornecedor();
+    {   //--------------------------------------------------------------------------------------
 
-        // Chama a função para buscar e exibir todos os fornecedores cadastrados
-        BuscarFornecedores();
+        // Bloco para chamar funções e realizar testes unitarios
+
+            CadastrarFornecedor();
+            BuscarFornecedores();
+            DeletarFornecedor();
+
+        //--------------------------------------------------------------------------------------
     }
 
     // Função para cadastrar um fornecedor
@@ -43,5 +46,16 @@ public class Program
             Console.WriteLine($"EMAIL: {fornecedor.EMAIL}");
             Console.WriteLine("-------------------------------------------");
         }
+    }
+
+    public static void DeletarFornecedor()
+    {
+        //Definir o id que eu quero deletar
+        string id_fornecedor = "f500";
+
+        //Chama a função para realizar o delete
+        Fornecedor.DeletarFornecedor(id_fornecedor);
+
+        Console.WriteLine($"Processo de exclusão do fornecedor com ID {id_fornecedor} finalizado.");
     }
 }
