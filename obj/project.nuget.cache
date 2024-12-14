@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wnAsmjVR428=",
+  "dgSpecHash": "mXLuPyf0vRc=",
   "success": true,
   "projectFilePath": "/home/guilherme/dev/Navio_2.0/Navio_2.0.csproj",
   "expectedPackageFiles": [
@@ -42,16 +42,5 @@
     "/home/guilherme/.nuget/packages/system.windows.extensions/8.0.0/system.windows.extensions.8.0.0.nupkg.sha512",
     "/home/guilherme/.nuget/packages/zstdsharp.port/0.8.0/zstdsharp.port.0.8.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "O pacote 'System.Text.Json' 8.0.4 tem uma alta vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
-      "libraryId": "System.Text.Json",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "logs": []
 }
